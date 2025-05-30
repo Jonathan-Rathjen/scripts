@@ -20,11 +20,10 @@ elif [[ $mega -eq 0 ]]; then
         tar -czf access_log_$(date +%F).gz /var/log/httpd/access_log
         : > /var/log/httpd/access_log
         systemctl restart httpd
-        exit
     else
         echo "Log size is less than 100MB"
-        exit
     fi
+    exit
 else
     tar -czf access_log_$(date +%F).gz /var/log/httpd/access_log
     : > /var/log/httpd/access_log
